@@ -1,4 +1,4 @@
-import { RowDataPacket } from 'mysql2';
+import { RowDataPacket } from 'mysql2/promise';
 import BaseEntity from '../../../../domain/entity/base.entity';
 
 export default interface UserEntity extends BaseEntity {
