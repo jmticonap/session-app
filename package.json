@@ -13,7 +13,7 @@
     "test": "npm run compile && npm run unit",
     "build": "sam build",
     "build:zip": "npm run build && cd .aws-sam/build/SessionAppFunction && zip fn app.js app.js.map && cd ../../../",
-    "start:dev": "sam local start-api --port 3000"
+    "start:dev": "sam build && sam local start-api --port 3000"
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "1.11.0",
