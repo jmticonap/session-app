@@ -1,10 +1,10 @@
 import { inject, singleton } from 'tsyringe';
-import PowerToolsLogger from '../../infrastructure/logger/power-tools.logger';
-import Logger from '../../infrastructure/logger/logger';
+import { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import MysqlConectionManager from './mysql-conection-manager';
 import MysqlPoolConectionManager from './mysql-pool-conection-manager';
-import { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
-import BaseEntity from '../../domain/entity/base.entity';
+import Logger from '../../logger/logger';
+import BaseEntity from '../../../domain/entity/base.entity';
+import PowerToolsLogger from '../../logger/power-tools.logger';
 
 type QueryAttributes = {
     sql: string;

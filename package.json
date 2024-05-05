@@ -12,8 +12,8 @@
     "compile": "tsc",
     "test": "npm run compile && npm run unit",
     "build": "sam build",
-    "start:dev": "sam local start-api --port 3000 --log-file logfile.txt",
-    "upload": "npm run build && cd .aws-sam/build/SessionAppFunction && zip fn app.js app.js.map && cd ../../../"
+    "build:zip": "npm run build && cd .aws-sam/build/SessionAppFunction && zip fn app.js app.js.map && cd ../../../",
+    "start:dev": "sam build && sam local start-api --port 3000"
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "1.11.0",
