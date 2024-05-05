@@ -1,4 +1,4 @@
-import MysqlCrudOperations from '../../../../db/mysql/mysql-crud-operations';
+import MysqlCrudOperations from '../../../../infrastructure/db/mysql/mysql-crud-operations';
 import UserEntity, { UserEntityPacket } from '../entity/user.entity';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

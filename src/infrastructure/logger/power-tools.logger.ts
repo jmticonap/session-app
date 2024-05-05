@@ -61,7 +61,7 @@ export default class PowerToolsLogger implements Logger {
     constructor() {
         this._logger = new PowerTools({
             logFormatter: new CustomLambdaFormat(),
-            serviceName: 'fn-cron-job',
+            serviceName: 'session-app',
         });
     }
 

@@ -1,8 +1,8 @@
 import { RowDataPacket } from 'mysql2/promise';
-import Logger from '../../infrastructure/logger/logger';
 import MysqlExecutor from './mysql-executor';
-import BaseEntity from '../../domain/entity/base.entity';
 import CrudOperations from '../crud-operations';
+import BaseEntity from '../../../domain/entity/base.entity';
+import Logger from '../../logger/logger';
 
 export default abstract class MysqlCrudOperations<E extends BaseEntity, P extends E & RowDataPacket>
     implements CrudOperations<E, P>

@@ -1,11 +1,11 @@
 import { Lifecycle, inject, scoped } from 'tsyringe';
 import mysql, { Connection, ConnectionOptions, RowDataPacket } from 'mysql2/promise';
 import ConectionManager from '../conection-manager';
-import PowerToolsLogger from '../../infrastructure/logger/power-tools.logger';
-import Logger from '../../infrastructure/logger/logger';
-import EnvConfigurationService from '../../infrastructure/service/env-configuration.service';
-import ConfigurationService from '../../domain/service/configuration.service';
-import { MysqlConfiguration } from '../../types/configuration';
+import Logger from '../../logger/logger';
+import ConfigurationService from '../../../domain/service/configuration.service';
+import { MysqlConfiguration } from '../../../types/configuration';
+import PowerToolsLogger from '../../logger/power-tools.logger';
+import EnvConfigurationService from '../../service/env-configuration.service';
 
 interface ConnectionMysql extends RowDataPacket {
     backendid: number;
