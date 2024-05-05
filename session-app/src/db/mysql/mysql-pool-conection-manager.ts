@@ -38,6 +38,7 @@ export default class MysqlPoolConectionManager implements ConectionManager {
                 connectTimeout: 10_000,
                 connectionLimit: 10,
             };
+            this._logger.info(className, method, undefined, config || cnnOpt, 'Connection pool data');
             this._poolConnection = await mysql.createPool(config || cnnOpt).getConnection();
 
             const [rows] = await this._poolConnection.query<ConnectionMysql[]>('SELECT CONNECTION_ID() as backendid');
@@ -51,7 +52,7 @@ export default class MysqlPoolConectionManager implements ConectionManager {
 
             return this._poolConnection;
         } catch (error) {
-            this._logger.error(className, method, undefined, {}, '', <Error>error);
+            this._logger.error(className, method, undefined, {}, 'Error open connection pool', <Error>error);
             throw error;
         }
     }

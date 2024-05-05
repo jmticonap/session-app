@@ -52,14 +52,15 @@ export default class MysqlExecutor {
             const conn = await this._poolManager.getConnection();
             this._logger.info(className, method, undefined, { data }, '');
 
-            let sql = `INSET INTO ${tableName} `;
+            let sql = `INSERT INTO ${tableName} `;
             sql += `(${this.makeFieldList(data)}) `;
-            sql += `VALUES (${this.makeQuestionMarkParam(Object.keys(data as object).length)});`;
+            sql += `VALUES (${this.makeQuestionMarkParam(data)});`;
 
             const params = this.makeParamsArray(data);
 
-            const [{ insertId }] = await conn.query<ResultSetHeader>(sql, params);
+            this._logger.info('', '', undefined, { sql, params }, 'SQL');
 
+            const [{ insertId }] = await conn.query<ResultSetHeader>(sql, params);
             data.id = insertId;
 
             return data;
@@ -93,7 +94,8 @@ export default class MysqlExecutor {
             .join(', ');
     }
 
-    private makeQuestionMarkParam(length: number): string {
+    private makeQuestionMarkParam<T>(data: T): string {
+        const length = Object.keys(data as object).length;
         const qm = [];
         for (let i = 0; i < length; i++) {
             qm.push('?');

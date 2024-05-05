@@ -1,6 +1,7 @@
 import { Route } from '@middy/http-router';
 import { APIGatewayProxyEvent } from 'aws-lambda';
 import { handler } from '../presentation/handler';
+import { userRoutes } from './user.routes';
 
 const routes: Route<APIGatewayProxyEvent>[] = [
     {
@@ -8,6 +9,7 @@ const routes: Route<APIGatewayProxyEvent>[] = [
         path: '/hello',
         handler,
     },
+    ...userRoutes,
 ];
 
 export default routes;

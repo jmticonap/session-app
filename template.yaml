@@ -8,7 +8,8 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    MemorySize: 512
+    Timeout: 15
 
     Tracing: Active
     # You can add LoggingConfig parameters such as the Logformat, Log Group, and SystemLogLevel or ApplicationLogLevel. Learn more here https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-loggingconfig.
@@ -34,7 +35,7 @@ Resources:
       Environment:
         Variables:
           NODE_ENV: local
-          MYSQL_HOST: localhost
+          MYSQL_HOST: 172.17.0.1
           MYSQL_PORT: 3306
           MYSQL_USER: root
           MYSQL_PASSWORD: root

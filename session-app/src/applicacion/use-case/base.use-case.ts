@@ -1,5 +1,5 @@
-import { APIGatewayProxyResult } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 export default interface BaseUseCase {
-    execute<T>(): Promise<APIGatewayProxyResult | T>;
+    execute<T>(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult | T>;
 }

@@ -5,3 +5,15 @@ export class SessionError extends Error {
         super(message);
     }
 }
+
+export class BadRequestError extends SessionError {
+    constructor() {
+        super('BadRequest');
+    }
+}
+
+export class SchemaValidationError extends SessionError {
+    constructor(message = 'Error validating') {
+        super(message);
+    }
+}
