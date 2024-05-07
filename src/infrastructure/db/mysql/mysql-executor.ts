@@ -24,7 +24,6 @@ type InsertAttributes<T> = {
 export default class MysqlExecutor {
     constructor(
         @inject(PowerToolsLogger) private _logger: Logger,
-        @inject(MysqlConectionManager) private _conectionManager: MysqlConectionManager,
         @inject(MysqlPoolConectionManager) private _poolManager: MysqlPoolConectionManager,
     ) {}
 
